@@ -6,6 +6,7 @@ export default {
   namespaced: true,
   state() {
     return {
+      // userIsCoach: false, // sets true once userSignedUp
       coaches: [
         {
           id: "c1",
@@ -23,7 +24,7 @@ export default {
           areas: ["frontend", "career"],
           description:
             "I am Julie and as a senior developer in a big tech company, I can help you get your first job or progress in your current role.",
-          hourlyRate: 30,
+          hourlyRate: 45,
         },
       ],
     };

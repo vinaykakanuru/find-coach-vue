@@ -8,7 +8,7 @@
   <section>
     <base-card>
       <header>
-        <h2>Interested? Reach out Now!</h2>
+        <h2>Interested? Reach out now!</h2>
         <base-button link :to="contactLink">Contact</base-button>
       </header>
       <router-view></router-view>
@@ -35,27 +35,27 @@ export default {
       selectedCoach: null,
     };
   },
-  created() {
-    this.selectedCoach = this.$store.getters["coaches/coaches"].find(
-      (coach) => coach.id === this.id
-    );
-  },
   computed: {
     fullName() {
       return this.selectedCoach.firstName + " " + this.selectedCoach.lastName;
-    },
-    contactLink() {
-      return this.$route.path + "/" + this.id + "/contact";
     },
     areas() {
       return this.selectedCoach.areas;
     },
     rate() {
-      return this.selectedCoach.rate;
+      return this.selectedCoach.hourlyRate;
     },
     description() {
       return this.selectedCoach.description;
     },
+    contactLink() {
+      return this.$route.path + "/" + this.id + "/contact";
+    },
+  },
+  created() {
+    this.selectedCoach = this.$store.getters["coaches/coaches"].find(
+      (coach) => coach.id === this.id
+    );
   },
 };
 </script>
