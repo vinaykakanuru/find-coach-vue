@@ -1,10 +1,18 @@
 <template>
+  <base-dialog
+    :show="!!error"
+    title="An Error Occured while Laoding Requests..!"
+    @close="handleError"
+  >
+    <p>{{ error }}</p>
+  </base-dialog>
   <section>
     <base-card>
       <header>
         <h2>Requests Received..!</h2>
       </header>
-      <ul v-if="hasRequests">
+      <base-spinner v-if="isLoading"></base-spinner>
+      <ul v-else-if="hasRequests && !isLoading">
         <request-item
           v-for="req in receivedRequests"
           :key="req.id"
@@ -19,18 +27,43 @@
 
 <script>
 import RequestItem from "../../components/requests/RequestItem.vue";
+import BaseDialog from "../../components/ui/BaseDialog.vue";
 
 export default {
   components: {
     RequestItem,
+    BaseDialog,
   },
-  data() {},
+  data() {
+    return {
+      isLoading: false,
+      error: null,
+    };
+  },
   computed: {
     receivedRequests() {
       return this.$store.getters["requests/requests"];
     },
     hasRequests() {
       return this.$store.getters["requests/hasRequests"];
+    },
+  },
+  created() {
+    this.loadRequests();
+  },
+  methods: {
+    async loadRequests() {
+      this.isLoading = true;
+      try {
+        await this.$store.dispatch("requests/fetchRequests");
+      } catch (error) {
+        this.error = error.message || "Failed to load Requests..!";
+      }
+
+      this.isLoading = false;
+    },
+    handeError() {
+      this.error = null;
     },
   },
 };

@@ -9,7 +9,13 @@
     <base-card>
       <header>
         <h2>Interested? Reach out now!</h2>
-        <base-button link :to="contactLink">Contact</base-button>
+        <base-button
+          link
+          :to="contactLink"
+          v-if="showButton"
+          @click="displayButton"
+          >Contact</base-button
+        >
       </header>
       <router-view></router-view>
     </base-card>
@@ -33,6 +39,7 @@ export default {
   data() {
     return {
       selectedCoach: null,
+      showButton: true,
     };
   },
   computed: {
@@ -49,13 +56,18 @@ export default {
       return this.selectedCoach.description;
     },
     contactLink() {
-      return this.$route.path + "/" + this.id + "/contact";
+      return this.$route.path + "/contact";
     },
   },
   created() {
     this.selectedCoach = this.$store.getters["coaches/coaches"].find(
       (coach) => coach.id === this.id
     );
+  },
+  methods: {
+    displayButton() {
+      this.showButton = false;
+    },
   },
 };
 </script>

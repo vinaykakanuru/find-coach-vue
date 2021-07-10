@@ -10,4 +10,12 @@ export default {
     const userId = rootGetters.userId; // fetching userID from rootGetters i.e from main index.js
     return coaches.some((coach) => coach.id === userId); // not a good solution, instead maintain a state userIsCoach as T/F once user signedUp.
   },
+  shouldUpdate(state) {
+    const lastFetch = state.lastFetch;
+    if (!lastFetch) {
+      return true;
+    }
+    const currentTimestamp = new Date().getTime();
+    return (currentTimestamp - lastFetch) / 1000 > 60;
+  },
 };
