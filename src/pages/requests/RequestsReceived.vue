@@ -64,7 +64,7 @@ export default {
 
       this.isLoading = false;
     },
-    handeError() {
+    handleError() {
       this.error = null;
     },
   },
