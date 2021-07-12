@@ -1,6 +1,6 @@
 # find-coach-vue
 
-![router 4.0.10](https://img.shields.io/badge/router-4.0.10-brightgreen.svg) ![vuex 4.0.2](https://img.shields.io/badge/vuex-4.0.2-skyblue.svg)
+![vue-router 4.0.10](https://img.shields.io/badge/router-4.0.10-brightgreen.svg) ![vuex 4.0.2](https://img.shields.io/badge/vuex-4.0.2-skyblue.svg)
 
 • A simple and basic Vue application to demonstrate the core concepts of Vue Js.
 
