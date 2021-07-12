@@ -1,6 +1,6 @@
 # find-coach-vue
 
-![vue-router 4.0.10](https://img.shields.io/badge/vue-router-4.0.10-brightgreen.svg) ![vuex 4.0.2](https://img.shields.io/badge/vuex-4.0.2-skyblue.svg)
+![vue_router 4.0.10](https://img.shields.io/badge/vue-router-4.0.10-brightgreen.svg) ![vuex 4.0.2](https://img.shields.io/badge/vuex-4.0.2-skyblue.svg)
 
 • A simple and basic Vue application to demonstrate the core concepts of Vue Js.
 
@@ -28,7 +28,7 @@ npm run build
 
 See [Configuration Reference](https://cli.vuejs.org/config/).
 
-• To Use the project with Firebase as Backend service then create a Project in <a href"https://console.firebase.google.com/">Firebase Console</a>.
+• To Use the project with Firebase as Backend service then create a Project in [Firebase Console](https://console.firebase.google.com/)
 
 • And set up Firebase Realtime Database rules as shown below.
 
