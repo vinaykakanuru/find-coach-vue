@@ -28,6 +28,8 @@ npm run build
 
 See [Configuration Reference](https://cli.vuejs.org/config/).
 
+## Firebase API
+
 • To Use the project with Firebase as Backend service then create a Project in [Firebase Console](https://console.firebase.google.com/)
 
 • And set up Firebase Realtime Database rules as shown below.
