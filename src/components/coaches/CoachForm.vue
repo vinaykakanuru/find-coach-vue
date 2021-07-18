@@ -30,6 +30,18 @@
       ></textarea>
       <p v-if="!description.isValid">Description must not be empty.</p>
     </div>
+    <div class="form-control" :class="{ invalid: !experience.isValid }">
+      <label for="experience">Years of Expertise</label>
+      <input
+        type="number"
+        id="experience"
+        v-model.number="experience.val"
+        @blur="clearValidity('experience')"
+      />
+      <p v-if="!experience.isValid">
+        Should have at least 3 years of Experience to Register as a coach.
+      </p>
+    </div>
     <div class="form-control" :class="{ invalid: !rate.isValid }">
       <label for="rate">Hourly Rate</label>
       <input
@@ -74,7 +86,7 @@
       </div>
       <p v-if="!areas.isValid">At least one expertise must be selected.</p>
     </div>
-    <div>
+    <div class="form-control">
       <label for="image">Profile Picture</label>
       <input id="image" type="file" @change="onFileSelected" />
     </div>
@@ -106,6 +118,10 @@ export default {
       },
       areas: {
         val: [],
+        isValid: true,
+      },
+      experience: {
+        val: null,
         isValid: true,
       },
       selectedImage: {
@@ -143,6 +159,10 @@ export default {
         this.areas.isValid = false;
         this.formIsValid = false;
       }
+      if (!this.experience.val || this.experience.val < 3) {
+        this.experience.isValid = false;
+        this.formIsValid = false;
+      }
     },
     submitForm() {
       this.validateForm();
@@ -157,6 +177,7 @@ export default {
         desc: this.description.val,
         rate: this.rate.val,
         areas: this.areas.val,
+        experience: this.experience.val,
         image: this.selectedImage.val,
       };
 

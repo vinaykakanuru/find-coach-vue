@@ -3,6 +3,7 @@
     <div class="left-right">
       <div>
         <h3>{{ fullName }}</h3>
+        <h4>Experience - {{ experience }}(Yrs)</h4>
         <h4>${{ rate }}/hour</h4>
       </div>
       <div class="right">
@@ -30,7 +31,7 @@
 import BaseBadge from "../ui/BaseBadge.vue";
 export default {
   components: { BaseBadge },
-  props: ["id", "firstName", "lastName", "rate", "areas"],
+  props: ["id", "firstName", "lastName", "rate", "areas", "experience"],
   computed: {
     fullName() {
       return this.firstName + " " + this.lastName;
@@ -76,7 +77,7 @@ div {
 }
 
 .right {
-  padding-left: 50%;
+  padding-left: 40%;
   justify-content: right;
 }
 </style>

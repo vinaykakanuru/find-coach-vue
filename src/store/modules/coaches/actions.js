@@ -7,13 +7,11 @@ export default {
       description: data.desc,
       hourlyRate: data.rate,
       areas: data.areas,
+      experience: data.experience,
       image: data.image,
     };
 
     const token = context.rootGetters.token;
-
-    console.log("Token #coaches/action.js:: " + token);
-    console.log("CoachData #coaches/action.js:: " + coachData.image.name);
 
     const response = await fetch(
       `https://vue-test-632d4-default-rtdb.firebaseio.com/coaches/${userId}.json?auth=` +
@@ -24,11 +22,7 @@ export default {
       }
     );
 
-    const responseData = await response.json();
-    console.log(
-      "Response after registering the coach #coaches/actions.js:: ",
-      responseData
-    );
+    // const responseData = await response.json();
 
     if (!response.ok) {
       // error ...
@@ -67,11 +61,12 @@ export default {
         description: responseData[key].description,
         hourlyRate: responseData[key].hourlyRate,
         areas: responseData[key].areas,
+        experience: responseData[key].experience,
         image: responseData[key].image,
       };
       coaches.push(coach);
     }
-    console.log("from loadcoaches:: " + coaches[0]);
+
     context.commit("setCoaches", coaches);
     context.commit("setFetchTimestamp");
   },

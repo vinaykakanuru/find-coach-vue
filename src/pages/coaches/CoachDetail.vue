@@ -5,6 +5,7 @@
         <div class="left-right">
           <div>
             <h2>{{ fullName }}</h2>
+            <h3>Experience - {{ experience }}(Yrs)</h3>
             <h3>${{ rate }}/hour</h3>
           </div>
           <div class="right">
@@ -61,6 +62,9 @@ export default {
     rate() {
       return this.selectedCoach.hourlyRate;
     },
+    experience() {
+      return this.selectedCoach.experience;
+    },
     description() {
       return this.selectedCoach.description;
     },
@@ -87,7 +91,7 @@ export default {
 }
 
 .right {
-  padding-left: 50%;
+  padding-left: 40%;
   justify-content: right;
 }
 </style>
