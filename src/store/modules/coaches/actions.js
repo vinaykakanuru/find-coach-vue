@@ -7,12 +7,16 @@ export default {
       description: data.desc,
       hourlyRate: data.rate,
       areas: data.areas,
+      image: data.image,
     };
 
     const token = context.rootGetters.token;
 
+    console.log("Token #coaches/action.js:: " + token);
+    console.log("CoachData #coaches/action.js:: " + coachData.image.name);
+
     const response = await fetch(
-      `https://vue-api-test-3aee6-default-rtdb.firebaseio.com/coaches/${userId}.json?auth=` +
+      `https://vue-test-632d4-default-rtdb.firebaseio.com/coaches/${userId}.json?auth=` +
         token,
       {
         method: "PUT",
@@ -20,7 +24,11 @@ export default {
       }
     );
 
-    // const responseData = await response.json();
+    const responseData = await response.json();
+    console.log(
+      "Response after registering the coach #coaches/actions.js:: ",
+      responseData
+    );
 
     if (!response.ok) {
       // error ...
@@ -37,7 +45,7 @@ export default {
     }
 
     const response = await fetch(
-      `https://vue-api-test-3aee6-default-rtdb.firebaseio.com/coaches.json`
+      `https://vue-test-632d4-default-rtdb.firebaseio.com/coaches.json`
     );
 
     const responseData = await response.json();
@@ -59,10 +67,11 @@ export default {
         description: responseData[key].description,
         hourlyRate: responseData[key].hourlyRate,
         areas: responseData[key].areas,
+        image: responseData[key].image,
       };
       coaches.push(coach);
     }
-
+    console.log("from loadcoaches:: " + coaches[0]);
     context.commit("setCoaches", coaches);
     context.commit("setFetchTimestamp");
   },

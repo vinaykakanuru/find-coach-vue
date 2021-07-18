@@ -2,8 +2,15 @@
   <div>
     <section>
       <base-card>
-        <h2>{{ fullName }}</h2>
-        <h3>${{ rate }}/hour</h3>
+        <div class="left-right">
+          <div>
+            <h2>{{ fullName }}</h2>
+            <h3>${{ rate }}/hour</h3>
+          </div>
+          <div class="right">
+            <h3>Display Image</h3>
+          </div>
+        </div>
       </base-card>
     </section>
     <section>
@@ -73,3 +80,14 @@ export default {
   },
 };
 </script>
+
+<style scoped>
+.left-right {
+  display: flex;
+}
+
+.right {
+  padding-left: 50%;
+  justify-content: right;
+}
+</style>

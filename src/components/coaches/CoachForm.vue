@@ -74,6 +74,10 @@
       </div>
       <p v-if="!areas.isValid">At least one expertise must be selected.</p>
     </div>
+    <div>
+      <label for="image">Profile Picture</label>
+      <input id="image" type="file" @change="onFileSelected" />
+    </div>
     <p v-if="!formIsValid">Please fix the above errors and submit again.</p>
     <base-button>Register</base-button>
   </form>
@@ -104,10 +108,16 @@ export default {
         val: [],
         isValid: true,
       },
+      selectedImage: {
+        val: "",
+      },
       formIsValid: true,
     };
   },
   methods: {
+    onFileSelected(event) {
+      this.selectedImage.val = event.target.files[0];
+    },
     clearValidity(input) {
       this[input].isValid = true;
     },
@@ -147,6 +157,7 @@ export default {
         desc: this.description.val,
         rate: this.rate.val,
         areas: this.areas.val,
+        image: this.selectedImage.val,
       };
 
       this.$emit("save-data", formData);

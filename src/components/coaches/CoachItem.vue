@@ -1,7 +1,14 @@
 <template>
   <li>
-    <h3>{{ fullName }}</h3>
-    <h4>${{ rate }}/hour</h4>
+    <div class="left-right">
+      <div>
+        <h3>{{ fullName }}</h3>
+        <h4>${{ rate }}/hour</h4>
+      </div>
+      <div class="right">
+        <h3>Display Image</h3>
+      </div>
+    </div>
     <div>
       <base-badge
         v-for="area in areas"
@@ -62,5 +69,14 @@ div {
 .actions {
   display: flex;
   justify-content: flex-end;
+}
+
+.left-right {
+  display: flex;
+}
+
+.right {
+  padding-left: 50%;
+  justify-content: right;
 }
 </style>
