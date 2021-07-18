@@ -4,7 +4,7 @@
 
 • A simple and basic Vue application to demonstrate the core concepts of Vue Js.
 
-• It helps you in understanding of how **_components_**, **_routing_**, **_vuex_** and **_http_** works in Vue Js Project.
+• It helps you in understanding of how **_components_**, **_routing_**, **_vuex_** and **_http_** works in Vue Projects.
 
 ## Project setup
 
