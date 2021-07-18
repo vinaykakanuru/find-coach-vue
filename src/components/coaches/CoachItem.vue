@@ -1,7 +1,20 @@
 <template>
   <li>
+<<<<<<< HEAD
     <h3>{{ fullName }}</h3>
     <h4>${{ rate }}/hour</h4>
+=======
+    <div class="left-right">
+      <div>
+        <h3>{{ fullName }}</h3>
+        <h4>Experience - {{ experience }}(Yrs)</h4>
+        <h4>${{ rate }}/hour</h4>
+      </div>
+      <div class="right">
+        <h3>Display Image</h3>
+      </div>
+    </div>
+>>>>>>> af1f0d3... added experience field to registration form
     <div>
       <base-badge
         v-for="area in areas"
@@ -23,7 +36,7 @@
 import BaseBadge from "../ui/BaseBadge.vue";
 export default {
   components: { BaseBadge },
-  props: ["id", "firstName", "lastName", "rate", "areas"],
+  props: ["id", "firstName", "lastName", "rate", "areas", "experience"],
   computed: {
     fullName() {
       return this.firstName + " " + this.lastName;
@@ -63,4 +76,16 @@ div {
   display: flex;
   justify-content: flex-end;
 }
+<<<<<<< HEAD
+=======
+
+.left-right {
+  display: flex;
+}
+
+.right {
+  padding-left: 40%;
+  justify-content: right;
+}
+>>>>>>> af1f0d3... added experience field to registration form
 </style>

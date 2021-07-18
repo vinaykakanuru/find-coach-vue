@@ -2,8 +2,21 @@
   <div>
     <section>
       <base-card>
+<<<<<<< HEAD
         <h2>{{ fullName }}</h2>
         <h3>${{ rate }}/hour</h3>
+=======
+        <div class="left-right">
+          <div>
+            <h2>{{ fullName }}</h2>
+            <h3>Experience - {{ experience }}(Yrs)</h3>
+            <h3>${{ rate }}/hour</h3>
+          </div>
+          <div class="right">
+            <h3>Display Image</h3>
+          </div>
+        </div>
+>>>>>>> af1f0d3... added experience field to registration form
       </base-card>
     </section>
     <section>
@@ -54,6 +67,9 @@ export default {
     rate() {
       return this.selectedCoach.hourlyRate;
     },
+    experience() {
+      return this.selectedCoach.experience;
+    },
     description() {
       return this.selectedCoach.description;
     },
@@ -73,3 +89,17 @@ export default {
   },
 };
 </script>
+<<<<<<< HEAD
+=======
+
+<style scoped>
+.left-right {
+  display: flex;
+}
+
+.right {
+  padding-left: 40%;
+  justify-content: right;
+}
+</style>
+>>>>>>> af1f0d3... added experience field to registration form

@@ -38,6 +38,7 @@
             :last-name="coach.lastName"
             :rate="coach.hourlyRate"
             :areas="coach.areas"
+            :experience="coach.experience"
           ></coach-item>
         </ul>
         <h3 v-else>No Coaches Found..!</h3>

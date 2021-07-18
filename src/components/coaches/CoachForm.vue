@@ -30,6 +30,18 @@
       ></textarea>
       <p v-if="!description.isValid">Description must not be empty.</p>
     </div>
+    <div class="form-control" :class="{ invalid: !experience.isValid }">
+      <label for="experience">Years of Expertise</label>
+      <input
+        type="number"
+        id="experience"
+        v-model.number="experience.val"
+        @blur="clearValidity('experience')"
+      />
+      <p v-if="!experience.isValid">
+        Should have at least 3 years of Experience to Register as a coach.
+      </p>
+    </div>
     <div class="form-control" :class="{ invalid: !rate.isValid }">
       <label for="rate">Hourly Rate</label>
       <input
@@ -74,6 +86,13 @@
       </div>
       <p v-if="!areas.isValid">At least one expertise must be selected.</p>
     </div>
+<<<<<<< HEAD
+=======
+    <div class="form-control">
+      <label for="image">Profile Picture</label>
+      <input id="image" type="file" @change="onFileSelected" />
+    </div>
+>>>>>>> af1f0d3... added experience field to registration form
     <p v-if="!formIsValid">Please fix the above errors and submit again.</p>
     <base-button>Register</base-button>
   </form>
@@ -104,6 +123,16 @@ export default {
         val: [],
         isValid: true,
       },
+<<<<<<< HEAD
+=======
+      experience: {
+        val: null,
+        isValid: true,
+      },
+      selectedImage: {
+        val: "",
+      },
+>>>>>>> af1f0d3... added experience field to registration form
       formIsValid: true,
     };
   },
@@ -133,6 +162,10 @@ export default {
         this.areas.isValid = false;
         this.formIsValid = false;
       }
+      if (!this.experience.val || this.experience.val < 3) {
+        this.experience.isValid = false;
+        this.formIsValid = false;
+      }
     },
     submitForm() {
       this.validateForm();
@@ -147,6 +180,11 @@ export default {
         desc: this.description.val,
         rate: this.rate.val,
         areas: this.areas.val,
+<<<<<<< HEAD
+=======
+        experience: this.experience.val,
+        image: this.selectedImage.val,
+>>>>>>> af1f0d3... added experience field to registration form
       };
 
       this.$emit("save-data", formData);
