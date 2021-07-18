@@ -131,6 +131,9 @@ export default {
     };
   },
   methods: {
+    onFileSelected(event) {
+      this.selectedImage.val = event.target.files[0];
+    },
     clearValidity(input) {
       this[input].isValid = true;
     },

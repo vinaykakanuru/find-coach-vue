@@ -3,6 +3,10 @@ import router from "./router.js";
 import store from "./store/index.js";
 import App from "./App.vue";
 
+// import "bootstrap"; // To include bootstrap, install bootstrap and popper using npm
+// npm install --save @popperjs/core
+// npm install --save bootstrap
+
 import BaseCard from "./components/ui/BaseCard.vue";
 import BaseButton from "./components/ui/BaseButton.vue";
 import BaseBadge from "./components/ui/BaseBadge.vue";
