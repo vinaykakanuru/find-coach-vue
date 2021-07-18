@@ -1,9 +1,5 @@
 <template>
   <li>
-<<<<<<< HEAD
-    <h3>{{ fullName }}</h3>
-    <h4>${{ rate }}/hour</h4>
-=======
     <div class="left-right">
       <div>
         <h3>{{ fullName }}</h3>
@@ -14,7 +10,6 @@
         <h3>Display Image</h3>
       </div>
     </div>
->>>>>>> af1f0d3... added experience field to registration form
     <div>
       <base-badge
         v-for="area in areas"
@@ -76,8 +71,6 @@ div {
   display: flex;
   justify-content: flex-end;
 }
-<<<<<<< HEAD
-=======
 
 .left-right {
   display: flex;
@@ -87,5 +80,4 @@ div {
   padding-left: 40%;
   justify-content: right;
 }
->>>>>>> af1f0d3... added experience field to registration form
 </style>

@@ -7,11 +7,8 @@ export default {
       description: data.desc,
       hourlyRate: data.rate,
       areas: data.areas,
-<<<<<<< HEAD
-=======
       experience: data.experience,
       image: data.image,
->>>>>>> af1f0d3... added experience field to registration form
     };
 
     const token = context.rootGetters.token;
@@ -64,11 +61,8 @@ export default {
         description: responseData[key].description,
         hourlyRate: responseData[key].hourlyRate,
         areas: responseData[key].areas,
-<<<<<<< HEAD
-=======
         experience: responseData[key].experience,
         image: responseData[key].image,
->>>>>>> af1f0d3... added experience field to registration form
       };
       coaches.push(coach);
     }

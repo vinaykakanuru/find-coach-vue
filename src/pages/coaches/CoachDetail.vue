@@ -2,10 +2,6 @@
   <div>
     <section>
       <base-card>
-<<<<<<< HEAD
-        <h2>{{ fullName }}</h2>
-        <h3>${{ rate }}/hour</h3>
-=======
         <div class="left-right">
           <div>
             <h2>{{ fullName }}</h2>
@@ -16,7 +12,6 @@
             <h3>Display Image</h3>
           </div>
         </div>
->>>>>>> af1f0d3... added experience field to registration form
       </base-card>
     </section>
     <section>
@@ -89,8 +84,6 @@ export default {
   },
 };
 </script>
-<<<<<<< HEAD
-=======
 
 <style scoped>
 .left-right {
@@ -102,4 +95,3 @@ export default {
   justify-content: right;
 }
 </style>
->>>>>>> af1f0d3... added experience field to registration form

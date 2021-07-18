@@ -86,13 +86,10 @@
       </div>
       <p v-if="!areas.isValid">At least one expertise must be selected.</p>
     </div>
-<<<<<<< HEAD
-=======
     <div class="form-control">
       <label for="image">Profile Picture</label>
       <input id="image" type="file" @change="onFileSelected" />
     </div>
->>>>>>> af1f0d3... added experience field to registration form
     <p v-if="!formIsValid">Please fix the above errors and submit again.</p>
     <base-button>Register</base-button>
   </form>
@@ -123,8 +120,6 @@ export default {
         val: [],
         isValid: true,
       },
-<<<<<<< HEAD
-=======
       experience: {
         val: null,
         isValid: true,
@@ -132,7 +127,6 @@ export default {
       selectedImage: {
         val: "",
       },
->>>>>>> af1f0d3... added experience field to registration form
       formIsValid: true,
     };
   },
@@ -180,11 +174,8 @@ export default {
         desc: this.description.val,
         rate: this.rate.val,
         areas: this.areas.val,
-<<<<<<< HEAD
-=======
         experience: this.experience.val,
         image: this.selectedImage.val,
->>>>>>> af1f0d3... added experience field to registration form
       };
 
       this.$emit("save-data", formData);
