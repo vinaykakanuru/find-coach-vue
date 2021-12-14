@@ -1,15 +1,20 @@
 export default {
   async conactCoach(context, payload) {
     const newRequest = {
-      userEmail: payload.email,
+      email: payload.email,
       message: payload.message,
+      coach: payload.coachId,
     };
 
     const response = await fetch(
-      `https://vue-test-632d4-default-rtdb.firebaseio.com/requests/${payload.coachId}.json`,
+      // `https://vue-test-632d4-default-rtdb.firebaseio.com/requests/${payload.coachId}.json`,
+      `http://127.0.0.1:8000/api/request/`,
       {
         method: "POST",
         body: JSON.stringify(newRequest),
+        headers: {
+          "Content-Type": "application/json",
+        },
       }
     );
 
