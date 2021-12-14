@@ -17,10 +17,10 @@ export default {
     const mode = payload.mode;
 
     // let url = `https://identitytoolkit.googleapis.com/v1/accounts:signInWithPassword?key=${process.env.VUE_APP_API_KEY}`;
-    let url = `https://identitytoolkit.googleapis.com/v1/accounts:signInWithPassword?key=${process.env.VUE_APP_API_KEY}`;
+    let url = `http://127.0.0.1:8000/api/login/`;
     if (mode === "signup") {
       // url = `https://identitytoolkit.googleapis.com/v1/accounts:signUp?key=${process.env.VUE_APP_API_KEY}`;
-      url = `https://identitytoolkit.googleapis.com/v1/accounts:signUp?key=${process.env.VUE_APP_API_KEY}`;
+      url = `http://127.0.0.1:8000/api/register_user/`;
     }
 
     const response = await fetch(url, {
