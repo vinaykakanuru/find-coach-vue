@@ -8,9 +8,9 @@
             <h3>Experience - {{ experience }}(Yrs)</h3>
             <h3>${{ rate }}/hour</h3>
           </div>
-          <div class="right">
+          <!-- <div class="right">
             <h3>Display Image</h3>
-          </div>
+          </div> -->
         </div>
       </base-card>
     </section>

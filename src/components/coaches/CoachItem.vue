@@ -6,9 +6,9 @@
         <h4>Experience - {{ experience }}(Yrs)</h4>
         <h4>${{ rate }}/hour</h4>
       </div>
-      <div class="right">
+      <!-- <div class="right">
         <h3>Display Image</h3>
-      </div>
+      </div> -->
     </div>
     <div>
       <base-badge

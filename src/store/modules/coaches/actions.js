@@ -62,7 +62,7 @@ export default {
         hourlyRate: responseData[key].hourlyRate,
         areas: responseData[key].areas,
         experience: responseData[key].experience,
-        image: responseData[key].image,
+        // image: responseData[key].image,
       };
       coaches.push(coach);
     }
