@@ -71,6 +71,7 @@ export default {
     for (const key in responseData["coaches"]) {
       const coach = {
         id: key,
+        user_id: responseData["coaches"][key].user,
         firstName: responseData["coaches"][key].first_name,
         lastName: responseData["coaches"][key].last_name,
         description: responseData["coaches"][key].description,
