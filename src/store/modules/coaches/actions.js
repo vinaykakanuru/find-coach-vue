@@ -1,6 +1,7 @@
 export default {
   async registerCoach(context, data) {
     const userId = context.rootGetters.userId;
+
     const coachData = {
       firstName: data.first,
       lastName: data.last,
@@ -8,24 +9,32 @@ export default {
       hourlyRate: data.rate,
       areas: data.areas,
       experience: data.experience,
-      image: data.image,
+      user: userId,
+      // image: data.image,
     };
 
     const token = context.rootGetters.token;
 
     const response = await fetch(
-      `https://vue-test-632d4-default-rtdb.firebaseio.com/coaches/${userId}.json?auth=` +
-        token,
+      // `https://vue-test-632d4-default-rtdb.firebaseio.com/coaches/${userId}.json?auth=` + token,
+      `http://127.0.0.1:8000/api/register_coach/`,
       {
-        method: "PUT",
+        method: "POST",
+        headers: {
+          Authorization: "Bearer " + token,
+          "Content-Type": "application/json",
+        },
         body: JSON.stringify(coachData),
       }
     );
 
-    // const responseData = await response.json();
+    const responseData = await response.json();
 
     if (!response.ok) {
-      // error ...
+      const error = new Error(
+        responseData.message || "Failed to Send request..!"
+      );
+      throw error;
     }
 
     context.commit("registerCoach", {

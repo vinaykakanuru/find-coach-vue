@@ -37,6 +37,15 @@ export default {
 
     const responseData = await response.json();
 
+    // Parsing JWT Access token to store User informarion in context
+    const parseJwt = (token) => {
+      try {
+        return JSON.parse(atob(token.split(".")[1]));
+      } catch (e) {
+        return null;
+      }
+    };
+
     if (!response.ok) {
       const error = new Error(responseData.detail || "Failed to authenticate");
       throw error;
@@ -45,9 +54,10 @@ export default {
     const expiresIn = +responseData.expiresIn * 1000;
     // const expiresIn = 5000;
     const expirationDate = new Date().getTime() + expiresIn;
+    const userId = parseJwt(responseData["access"]).user_id;
 
     localStorage.setItem("token", responseData.access);
-    localStorage.setItem("userId", responseData.user_id);
+    localStorage.setItem("userId", userId);
     localStorage.setItem("tokenExpiration", expirationDate);
 
     timer = setTimeout(function () {
@@ -56,7 +66,7 @@ export default {
 
     context.commit("setUser", {
       token: responseData.access,
-      userId: responseData.user_id,
+      userId: userId,
     });
   },
   tryLogin(context) {

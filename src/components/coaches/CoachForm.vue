@@ -178,7 +178,7 @@ export default {
         rate: this.rate.val,
         areas: this.areas.val,
         experience: this.experience.val,
-        image: this.selectedImage.val,
+        // image: this.selectedImage.val,
       };
 
       this.$emit("save-data", formData);

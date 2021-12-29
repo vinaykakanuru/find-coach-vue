@@ -50,7 +50,9 @@ export default {
 
     if (!response.ok) {
       const error = new Error(
-        responseData.message || "Failed to Send request..!"
+        responseData.message +
+          " As You are not a registered coach you cannot have any requests" ||
+          "Failed to Send request..!"
       );
       throw error;
     }
