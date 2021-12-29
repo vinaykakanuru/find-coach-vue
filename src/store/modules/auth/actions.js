@@ -25,6 +25,9 @@ export default {
 
     const response = await fetch(url, {
       method: "POST",
+      headers: {
+        "Content-Type": "application/json;charset=UTF-8",
+      },
       body: JSON.stringify({
         email: payload.email,
         password: payload.password,
@@ -35,9 +38,7 @@ export default {
     const responseData = await response.json();
 
     if (!response.ok) {
-      const error = new Error(
-        responseData.error.message || "Failed to authenticate"
-      );
+      const error = new Error(responseData.detail || "Failed to authenticate");
       throw error;
     }
 
@@ -45,17 +46,17 @@ export default {
     // const expiresIn = 5000;
     const expirationDate = new Date().getTime() + expiresIn;
 
-    localStorage.setItem("token", responseData.idToken);
-    localStorage.setItem("userId", responseData.userId);
+    localStorage.setItem("token", responseData.access);
+    localStorage.setItem("userId", responseData.user_id);
     localStorage.setItem("tokenExpiration", expirationDate);
 
-    timer = setTimeout(function() {
+    timer = setTimeout(function () {
       context.dispatch("setAutoLogout");
     }, expiresIn);
 
     context.commit("setUser", {
-      token: responseData.idToken,
-      userId: responseData.localId,
+      token: responseData.access,
+      userId: responseData.user_id,
     });
   },
   tryLogin(context) {
@@ -69,7 +70,7 @@ export default {
       return;
     }
 
-    timer = setTimeout(function() {
+    timer = setTimeout(function () {
       context.dispatch("setAutoLogout");
     }, expiresIn);
 

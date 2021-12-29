@@ -8,7 +8,7 @@ export default {
 
     const response = await fetch(
       // `https://vue-test-632d4-default-rtdb.firebaseio.com/requests/${payload.coachId}.json`,
-      `http://127.0.0.1:8000/api/request/`,
+      `http://127.0.0.1:8000/api/contact/`,
       {
         method: "POST",
         body: JSON.stringify(newRequest),
@@ -37,8 +37,14 @@ export default {
     const coachId = context.rootGetters.userId;
     const token = context.rootGetters.token;
     const response = await fetch(
-      `https://vue-test-632d4-default-rtdb.firebaseio.com/requests/${coachId}.json?auth=` +
-        token
+      // `https://vue-test-632d4-default-rtdb.firebaseio.com/requests/${coachId}.json?auth=` + token
+      `http://127.0.0.1:8000/api/requests/`,
+      {
+        method: "GET",
+        headers: {
+          Authorization: "Bearer " + token,
+        },
+      }
     );
     const responseData = await response.json();
 
@@ -49,12 +55,12 @@ export default {
       throw error;
     }
     const requests = [];
-    for (const key in responseData) {
+    for (const key in responseData["requests"]) {
       const request = {
         id: key,
         coachId: coachId,
-        userEmail: responseData[key].userEmail,
-        message: responseData[key].message,
+        userEmail: responseData["requests"][key].email,
+        message: responseData["requests"][key].message,
       };
       requests.push(request);
     }
